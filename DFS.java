@@ -104,6 +104,33 @@ public class DFS extends Structure{
             }
         }
         
-        levelorder(root);
+        
+    }
+    
+    public void printPostorder(Node root){
+        if (root == null)
+            return;
+        
+        printPostorder(root.left);
+        printPostorder(root.right);
+        System.out.print(root.key + " ");
+    }
+    
+    
+    public void printPreorder(Node root){
+        if (root == null)
+            return;
+        System.out.print(root.key + " ");
+        printPostorder(root.left);
+        printPostorder(root.right);
+    }
+    
+    
+    public void printInorder(Node root){
+        if (root == null)
+            return;
+        printPostorder(root.left);
+        System.out.print(root.key + " ");
+        printPostorder(root.right);
     }
 }

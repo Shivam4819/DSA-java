@@ -113,7 +113,7 @@ class Tree extends Node{
                 }
             }
         }
-        printPostorder(root);
+        printPreorder(root);
         System.out.println("want to delete value or not \n 1)yes \t  2)no");
         int choice=scanner.nextInt();
         if(choice==1)
@@ -121,12 +121,12 @@ class Tree extends Node{
         
     }
     
-    public void printPostorder(Node root){
+    public void printPreorder(Node root){
         if (root == null)
             return;
         System.out.print(root.key + " ");
-        printPostorder(root.left);
-        printPostorder(root.right);
+        printPreorder(root.left);
+        printPreorder(root);
     }
     
     public void delete(int lastValue){
@@ -156,7 +156,7 @@ class Tree extends Node{
             temp1.left=null;
         }
         System.out.println("second time traversal");
-        printPostorder(root);
+        printPreorder(root);
     }
     public Node levelorder(Node root,int deleteValue){
         
