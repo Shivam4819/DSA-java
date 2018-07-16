@@ -7,21 +7,25 @@ package dsa;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+import java.lang.*;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 /**
  *
  * @author shivam
  */
-class Structure{
+ class Nodes{
     protected int key;
-    protected Structure left,right;
+    protected Nodes left,right;
 
 }
-public class DFS extends Structure{
-     Structure root,newnode1,temp,temp1;
-
-    public DFS() {
+public class ContinuousTree {
+   Nodes root,newnode1,temp,temp1;
+   
+    public ContinuousTree() {
     root=null;
+    
     }
     
     public void insert() throws InputMismatchException{
@@ -56,7 +60,7 @@ public class DFS extends Structure{
             }
             flag1=true;
 
-            newnode1=new Structure();
+            newnode1=new Nodes();
             newnode1.left=null;
             newnode1.key=data;
             newnode1.right=null;
@@ -104,38 +108,53 @@ public class DFS extends Structure{
             }
         }
         
-        System.out.print("postorder trversal-");
-        printPostorder(root);
-        System.out.print("preorder traversal");
-        printPostorder(root);
-        System.out.println("inorder traversal-");
-        printInorder(root);
-    }
-    
-    public void printPostorder(Structure root){
-        if (root == null)
-            return;
+        continuoustree(root);
+    } 
+       
+     public void continuoustree(Nodes root){
         
-        printPostorder(root.left);
-        printPostorder(root.right);
-        System.out.print(root.key + " ");
-    }
-    
-    
-    public void printPreorder(Structure root){
-        if (root == null)
-            return;
-        System.out.print(root.key + " ");
-        printPostorder(root.left);
-        printPostorder(root.right);
-    }
-    
-    
-    public void printInorder(Structure root){
-        if (root == null)
-            return;
-        printPostorder(root.left);
-        System.out.print(root.key + " ");
-        printPostorder(root.right);
+        boolean flag=true; 
+        Nodes temp1=null,temp2=null; 
+        Queue<Nodes> q1=new LinkedList<>();
+        Queue<Nodes> q2=new LinkedList<>();
+        Iterator itr=q1.iterator();
+        Iterator itr2=q2.iterator();  
+        q1.add(root);
+        
+        while(itr.hasNext()|| itr2.hasNext()){
+            while(itr.hasNext()){
+                if(q1.element().left  != null)
+                    q2.add(q1.element().left);
+
+                if(q1.element().right != null)
+                     q2.add(q1.element().right);
+              
+                System.out.print(q1.element().key+" ");
+                temp1=q1.element();
+                q1.remove();
+            }
+            while (itr2.hasNext())
+            {
+                if (q2.element().left != null)
+                    q1.add(q2.element().left);
+
+                if (q2.element().right != null)
+                    q1.add(q2.element().right);
+                
+                System.out.print(q2.element().key+" ");
+                temp2=q2.element();
+                
+                if(temp1.key-temp2.key==1 ||temp1.key-temp2.key==-1){
+                    flag=false;
+                }
+                q2.remove();
+                
+            }
+        }
+        if(flag==false)
+             System.out.println("continuous tree");
+        else
+             System.out.println("not continous");
+        
     }
 }

@@ -18,11 +18,11 @@ public class Node {
     protected Node left,right;
 }
 
-class Tree extends Node{
+class BinaryTree extends Node{
     
     Node root,newnode1,temp,temp1;
 
-    public Tree() {
+    public BinaryTree() {
     root=null;
     }
     
@@ -181,6 +181,7 @@ class Tree extends Node{
                 }
                 q1.remove();
             }
+            
             while (itr2.hasNext())
             {
                 if (q2.element().left != null)
