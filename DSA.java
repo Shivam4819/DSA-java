@@ -21,15 +21,20 @@ public class DSA {
     public static void main(String[] args) {
         // TODO code application logic 
         BinaryTree tree =new BinaryTree();
-        tree.insert();
+            tree.insert();
         
         BFS bfs=new BFS();
-        bfs.insert();
+            bfs.insert();
         
-       DFS dfs=new DFS();
-       dfs.insert();
-      ContinuousTree c=new ContinuousTree();
-      c.insert();
+        DFS dfs=new DFS();
+            dfs.insert();
+        ContinuousTree continoustree=new ContinuousTree();
+            continoustree.insert();
+     
+        ArrayBinaryTree arrayrepresent=new ArrayBinaryTree();
+            arrayrepresent.insertIntoArray();
+            arrayrepresent.displayArray();
+     
      }
 }
 
