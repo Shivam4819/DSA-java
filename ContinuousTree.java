@@ -15,13 +15,8 @@ import java.util.Queue;
  *
  * @author shivam
  */
- class Nodes{
-    protected int key;
-    protected Nodes left,right;
-
-}
-public class ContinuousTree {
-   Nodes root,newnode1,temp,temp1;
+public class ContinuousTree extends Node{
+   Node root,newnode1,temp,temp1;
    
     public ContinuousTree() {
     root=null;
@@ -60,7 +55,7 @@ public class ContinuousTree {
             }
             flag1=true;
 
-            newnode1=new Nodes();
+            newnode1=new Node();
             newnode1.left=null;
             newnode1.key=data;
             newnode1.right=null;
@@ -72,7 +67,7 @@ public class ContinuousTree {
             }
             else{
                 temp=root;
-                System.out.println("you are in else");
+             //   System.out.println("you are in else");
                 flag=true;
                 while(flag){
                     
@@ -111,12 +106,12 @@ public class ContinuousTree {
         continuoustree(root);
     } 
        
-     public void continuoustree(Nodes root){
+     public void continuoustree(Node root){
         
         boolean flag=true; 
-        Nodes temp1=null,temp2=null; 
-        Queue<Nodes> q1=new LinkedList<>();
-        Queue<Nodes> q2=new LinkedList<>();
+        Node temp1=null,temp2=null; 
+        Queue<Node> q1=new LinkedList<>();
+        Queue<Node> q2=new LinkedList<>();
         Iterator itr=q1.iterator();
         Iterator itr2=q2.iterator();  
         q1.add(root);

@@ -12,13 +12,9 @@ import java.util.Scanner;
  *
  * @author shivam
  */
-class Structure{
-    protected int key;
-    protected Structure left,right;
 
-}
-public class DFS extends Structure{
-     Structure root,newnode1,temp,temp1;
+public class DFS extends Node{
+    Node root,newnode1,temp,temp1;
 
     public DFS() {
     root=null;
@@ -56,7 +52,7 @@ public class DFS extends Structure{
             }
             flag1=true;
 
-            newnode1=new Structure();
+            newnode1=new Node();
             newnode1.left=null;
             newnode1.key=data;
             newnode1.right=null;
@@ -112,7 +108,7 @@ public class DFS extends Structure{
         printInorder(root);
     }
     
-    public void printPostorder(Structure root){
+    public void printPostorder(Node root){
         if (root == null)
             return;
         
@@ -122,7 +118,7 @@ public class DFS extends Structure{
     }
     
     
-    public void printPreorder(Structure root){
+    public void printPreorder(Node root){
         if (root == null)
             return;
         System.out.print(root.key + " ");
@@ -131,7 +127,7 @@ public class DFS extends Structure{
     }
     
     
-    public void printInorder(Structure root){
+    public void printInorder(Node root){
         if (root == null)
             return;
         printPostorder(root.left);
